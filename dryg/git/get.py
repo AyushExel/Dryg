@@ -1,5 +1,9 @@
 '''
-
+There are many ways to go about handling github rest apis. What I'm going for is a simplecway to get the data I need without 
+making too many calls to the api. The idea is:
+* To get all repos for the user during the initial setup and create a table with all the granular details of the repo.
+* Other ooerations such as selecting repos based on certain criteria, getting issues, etc. can be done on the table without additional need to call the api.
+* The table can be updated periodically to keep it in sync with users github account.
 '''
 
 import github
