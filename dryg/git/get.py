@@ -5,8 +5,10 @@ making too many calls to the api. The idea is:
 * Other ooerations such as selecting repos based on certain criteria, getting issues, etc. can be done on the table without additional need to call the api.
 * The table can be updated periodically to keep it in sync with users github account.
 '''
+import datetime
 
 import github
+import lancedb
 from github import Github
 
 GH = Github("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")
