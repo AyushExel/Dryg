@@ -14,6 +14,12 @@ from github import Github
 GH = Github("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")
 
 def get_all_repos():
+    """
+    Get all repos for the user
+
+    Returns:
+        list: List of all repos
+    """
     user = GH.get_user()
     orgs = user.get_orgs()
 
@@ -24,6 +30,12 @@ def get_all_repos():
     return all_repos
 
 def get_repo_by_name(name: str):
+    """
+    Get a repo by name
+    
+    Args:
+        name (str): Name of the repo
+    """
     repo =  GH.get_repo(name)
     import pdb; pdb.set_trace()
 

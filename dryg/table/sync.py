@@ -12,6 +12,12 @@ from dryg.git.get import get_all_repos, get_issues, get_repo_by_name
 from dryg.settings import DB_URI, REPO_SCHEMA, SYNC_PERIOD
 
 def create_repo_table():
+    """
+    Create a table with all the repos for the user
+
+    Returns:
+        lancedb.LanceDBConnection: LanceDBConnection object
+    """
     db = lancedb.connect(DB_URI)
     try:
         repos = db.open_table('repos')
