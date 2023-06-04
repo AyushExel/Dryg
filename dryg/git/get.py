@@ -57,3 +57,19 @@ def get_issues(repo, **kwargs):
     issues = repo.get_issues(**kwargs)
     return issues
 
+def get_issue_comments(repo, issue_number):
+    """
+    Get comments for an issue
+
+    Args:
+        repo (str): Name of the repo
+        issue_number (int): Issue number
+
+    Returns:
+        PaginatedList: List of comments
+    """
+    repo = GH.get_repo(repo)
+    issue = repo.get_issue(issue_number)
+    comments = issue.get_comments()
+    return comments
+
