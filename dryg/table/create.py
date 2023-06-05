@@ -44,7 +44,7 @@ def create_repos_table(sync: str = "auto") -> lancedb.LanceDBConnection:
     db = create_table('repos', table)
     return db # I can return the table instead of the db object??
 
-def create_issues_table(repo_name: str, sync: str = "auto"):
+def create_issues_table(repo_name: str, sync: str = "auto", limit: int = 20) -> lancedb.LanceDBConnection:
     """
     Sync the issues table with the remote. Syncs all occurrences of the repo_name in the repos table inlcusing forks on other
     orgs.
@@ -71,13 +71,16 @@ def create_issues_table(repo_name: str, sync: str = "auto"):
     repos = get_repo_names_ending_with(repo_name)
     issues_list = [get_issues(repo) for repo in repos]
     cols = [[] for _ in ISSUE_SCHEMA] # combine all issues across forks into one table
-        
+    
+    lim = 0
     for issues in issues_list:
         for issue in issues:
-            print("issue", issue)
             for idx, key in enumerate(ISSUE_SCHEMA):
                 cols[idx].append(issue.__dict__["_rawData"][key])
-
+            lim += 1
+            if lim >= limit:
+                break
+            
     table = pa.table(cols, names=ISSUE_SCHEMA)
     db = create_table(repo_name, table)
 

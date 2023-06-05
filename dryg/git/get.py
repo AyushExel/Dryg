@@ -10,8 +10,9 @@ from github.PaginatedList import PaginatedList
 import pyarrow.compute as pc
 
 from dryg.db import open_table
+from dryg.settings import WEIGHTS_URI
 
-GH = Github("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")
+GH = Github()
 
 def get_all_repos()-> PaginatedList:
     """
@@ -20,11 +21,11 @@ def get_all_repos()-> PaginatedList:
     Returns:
         PaginatedList: List of repos
     """
-    user = GH.get_user()
-    #orgs = user.get_orgs()
-    #user_repos = list(user.get_repos())
-    # org_repos = [org_repo for org in orgs for org_repo in org.get_repos()]
-    all_repos = user.get_repos() # + org_repos
+    user = GH.get_user("AyushExel")
+    orgs = user.get_orgs()
+    user_repos = list(user.get_repos())
+    org_repos = [org_repo for org in orgs for org_repo in org.get_repos()]
+    all_repos = user_repos + org_repos
 
     return all_repos
 
@@ -72,4 +73,3 @@ def get_issue_comments(repo, issue_number):
     issue = repo.get_issue(issue_number)
     comments = issue.get_comments()
     return comments
-

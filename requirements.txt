@@ -1,3 +1,6 @@
 pygithub
 lancedb
 pyarrow
+llama-cpp-python
+huggingface_hub
+sentencepiece
