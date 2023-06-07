@@ -43,7 +43,7 @@ This is nowhere close to what I initially planned for, but due to the limited co
 
 TODOs:
 - [ ] Allow maintainers to directly respond to similar issues based on their previous responses to similar issues
-
+- [ ] Optionally, provide issue comments summary as a probable answer
 
 
 Notes/ Analysis/ Takeaways:
