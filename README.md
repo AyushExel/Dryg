@@ -2,7 +2,7 @@
 Don't Repeat Yourself on GitHub
 
 ## Description
-**Note** : This is WIP. Only the initial POC is done.
+**Note** : This is a WIP. Only the initial POC is done.
 
 Built using LanceDB + Llama.CPP + GitHub API, dryg aims to:
 * Reduce redundant issues for project maintainers and
