@@ -1,6 +1,8 @@
 import logging
 import pyarrow as pa
 import pyarrow.compute as pc
+from tabulate import tabulate
+
 
 from llama_cpp import Llama
 from dryg.settings import DEFAULT_MODEL
@@ -75,5 +77,8 @@ def search_table(table: str, query: str):
     issues = open_table(table)
     query_embedding = embedding_func([query])[0]
     
-    res =  issues.search(query_embedding).limit(10)
-    import pdb; pdb.set_trace()
+    results =  issues.search(query_embedding).limit(4).to_df()
+    table = [["Title", "Link"]]
+    for title, link in zip(results["title"], results["html_url"]):
+        table.append([title, link])
+    print(tabulate(table))

@@ -77,7 +77,9 @@ def create_issues_table(repo_name: str, sync: str = "auto", limit: int = 20) -> 
         for issue in issues:
             for idx, key in enumerate(ISSUE_SCHEMA):
                 cols[idx].append(issue.__dict__["_rawData"][key])
-            lim += 1
+                
+            if not issue.pull_request:
+                lim += 1
             if lim >= limit:
                 break
             

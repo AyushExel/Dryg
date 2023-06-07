@@ -55,7 +55,7 @@ def get_issues(repo, **kwargs):
         PaginatedList: List of issues
     """
     repo = GH.get_repo(repo)
-    issues = repo.get_issues(**kwargs)
+    issues = repo.get_issues(state="all", **kwargs)
     return issues
 
 def get_issue_comments(repo, issue_number):

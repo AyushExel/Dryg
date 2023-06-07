@@ -43,3 +43,4 @@ save_embeddings("yolov5")
 #search_table("yolov5", "Does YOLOv5 support huawei GPU") # good
 #search_table("yolov5", "conf thresh and iou thresh for YOLOv5") # bad
 #search_table("yolov5", "export openvino has issues") # good
+#search_table("yolov5", "can I train on new data without training on old data") # good
