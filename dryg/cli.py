@@ -30,7 +30,7 @@ def cli():
             json.dump(config, f)
 
         print(f"building search space for {args.setup}")
-        #save_embeddings(args.setup)
+        save_embeddings(args.setup)
         print(f"Run `dryg search` to search for issues")
         return
     
@@ -43,9 +43,6 @@ def cli():
         search_table(config.get("REPO") , args.search)
         return
     
-    elif args.help:
-        print("Run `dryg init {username}` to get started")
-        return
 
 # TODO: make configs project level, not user level
 def _read_config(config_path):
