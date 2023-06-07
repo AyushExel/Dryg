@@ -13,7 +13,7 @@ Built using LanceDB + Llama.CPP + GitHub API, dryg aims to:
 * Built on free services with plans to add more embedding APIs like OpenAI and Cohere
 
 ## Getting Started
-Note: You need to download llama.cpp models from HF here - https://huggingface.co/TheBloke/llama-30b-supercot-GGML/tree/main and put it in `weights/llama-7b.bin` of the working dir. I'll into autamating the model download process but I've not focused on it yet due to license implications.
+Note: You need to download llama.cpp models from HF here - https://huggingface.co/TheBloke/llama-30b-supercot-GGML/tree/main and put it in `weights/llama-7b.bin` of the working dir. I'll look into autamating the model download process but I've not focused on it yet due to license implications.
 
 Dryg setup just requires 3 simple steps:
 
