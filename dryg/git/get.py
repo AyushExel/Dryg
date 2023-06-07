@@ -14,7 +14,7 @@ from dryg.settings import WEIGHTS_URI
 
 GH = Github()
 
-def get_all_repos()-> PaginatedList:
+def get_all_repos(user: str)-> PaginatedList:
     """
     Get all repos for the user
 

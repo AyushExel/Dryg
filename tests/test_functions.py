@@ -35,7 +35,7 @@ def test_create_issues_table():
     db = create_issues_table("yolov5")
     assert isinstance(db, lancedb.LanceDBConnection), "Expected LanceDBConnection"
     issues = db.open_table('yolov5')
-    #assert issues.schema.names in [ISSUE_SCHEMA, ISSUE_SCHEMA+["vector"] , "Expected schema to match REPO_SCHEMA"
+    assert issues.schema.names in [ISSUE_SCHEMA, ISSUE_SCHEMA+["vector"]] , "Expected schema to match REPO_SCHEMA"
 
 test_create_repo_table()
 test_create_issues_table()

@@ -14,7 +14,7 @@ def connection() -> lancedb.LanceDBConnection:
     db = lancedb.connect(DB_URI)
     return db
 
-def open_table(table_name: str) -> Union[lancedb.LanceDBConnection, None]:
+def open_table(table_name: str) -> Union[lancedb.table.LanceTable, None]:
     """
     Open a table from the database
 
@@ -22,7 +22,7 @@ def open_table(table_name: str) -> Union[lancedb.LanceDBConnection, None]:
         table_name (str): Name of the table
 
     Returns:
-        lancedb.LanceDBConnection: LanceDBConnection object
+        lancedb.table.LanceTable: LanceTable object
     """
     db = connection()
     try:

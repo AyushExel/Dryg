@@ -3,6 +3,8 @@ from pathlib import Path
 import pkg_resources as pkg
 from setuptools import find_packages, setup
 
+import dryg.cli
+
 # Settings
 FILE = Path(__file__).resolve()
 PARENT = FILE.parent  # root directory
@@ -26,5 +28,6 @@ setup(
     author_email='ayush.chaurarsia@gmail.com',
     packages=find_packages(),  # required
     include_package_data=True,
+    entry_points={"console_scripts": ["dryg = dryg.cli:cli"] }
 )
 

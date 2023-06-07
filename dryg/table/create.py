@@ -12,7 +12,7 @@ from dryg.git.get import get_all_repos, get_issues, get_repo_names_ending_with
 from dryg.settings import REPO_SCHEMA, ISSUE_SCHEMA, SYNC_PERIOD
 from dryg.db import open_table, create_table, connection
 
-def create_repos_table(sync: str = "auto") -> lancedb.LanceDBConnection:
+def create_repos_table(user: str, sync: str = "auto") -> lancedb.LanceDBConnection:
     """
     Create a table with all the repos for the user
 
@@ -34,7 +34,7 @@ def create_repos_table(sync: str = "auto") -> lancedb.LanceDBConnection:
     else:
         logging.info("Coudn't load repos table, creating one.")
 
-    repos = get_all_repos()
+    repos = get_all_repos(user)
     cols = [[] for _ in REPO_SCHEMA]
     for repo in repos:
         for idx, key in enumerate(REPO_SCHEMA):
@@ -77,7 +77,7 @@ def create_issues_table(repo_name: str, sync: str = "auto", limit: int = 20) -> 
         for issue in issues:
             for idx, key in enumerate(ISSUE_SCHEMA):
                 cols[idx].append(issue.__dict__["_rawData"][key])
-                
+
             if not issue.pull_request:
                 lim += 1
             if lim >= limit:
