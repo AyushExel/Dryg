@@ -1,5 +1,3 @@
-import logging
-
 DB_URI = "~/.dryg/db"
 WEIGHTS_URI = "weights/"
 CONFIG_URI = "dryg-config.json"
