@@ -51,5 +51,4 @@ Notes/ Analysis/ Takeaways:
 * The performance of 7B llama models is not great for embedding/similarity search and 4-bit quantization makes it suffer more, but it was enough for the MVP version
 * It could be because precision doesn't matter too much for generation demos but for embedding space it becomes more important, especially when the semantic meaning of texts are very close by (which it is in this case as issues are from same repo)
 Usage
-More detailed instructions on how to use your project. This should include code examples, as well as a discussion of the different features and options available.
 
